@@ -1,0 +1,117 @@
+# Compatch fix (runs via BPM monthly pulse: bpm_misc.3):
+# - Keep BPM's repeatable law safety reset.
+# - Repair broken IG ideology UI (ensure placeholders via bpm_reorder_ideologies).
+# - Repair occasional double religious ideology on Market/National Liberals (pick the intended single stance).
+
+bpm_misc.3 = { # Delayed repeatable law reset
+	type = country_event
+	placement = root
+	hidden = yes
+
+	trigger = {
+		
+	}
+	immediate = {
+		# Original BPM behavior: ensure "none" repeatables are active
+		if = {
+			limit = { NOT = { has_law = law_type:law_repeatable_politics_none } }
+			activate_law = law_type:law_repeatable_politics_none
+		}
+		if = {
+			limit = { NOT = { has_law = law_type:law_repeatable_religion_none } }
+			activate_law = law_type:law_repeatable_religion_none
+		}
+		if = {
+			limit = { NOT = { has_law = law_type:law_repeatable_culture_none } }
+			activate_law = law_type:law_repeatable_culture_none
+		}
+		if = {
+			limit = { NOT = { has_law = law_type:law_repeatable_economy_none } }
+			activate_law = law_type:law_repeatable_economy_none
+		}
+		if = {
+			limit = { NOT = { has_law = law_type:law_repeatable_military_none } }
+			activate_law = law_type:law_repeatable_military_none
+		}
+
+		# Fix: keep BPM ideology UI ordering/placeholder stances intact for all IGs
+		every_interest_group = { bpm_reorder_ideologies = yes }
+
+		# Safety: some scripts can temporarily strip category stances; ensure key IGs never end up with "no slot" issues.
+		ig:ig_intelligentsia = {
+			add_ideology = ideology_exe_placeholder
+			add_ideology = ideology_wel_placeholder
+			add_ideology = ideology_eco_placeholder
+			bpm_reorder_ideologies = yes
+		}
+		ig:ig_industrialists = {
+			add_ideology = ideology_exe_placeholder
+			add_ideology = ideology_dop_placeholder
+			add_ideology = ideology_wel_placeholder
+			add_ideology = ideology_rel_placeholder
+			bpm_reorder_ideologies = yes
+		}
+
+		# Fix: Market Liberals should never end up with 2 religious stances.
+		ig:ig_market_liberals ?= {
+			if = {
+				limit = {
+					has_ideology = ideology:ideology_rel_secularist
+					has_ideology = ideology:ideology_rel_radical_secularist
+				}
+				bpm_remove_all_rel_ideologies = yes
+				if = {
+					limit = { 
+						OR = {
+							owner = c:USA
+							owner = c:BIC
+						}
+					}
+					add_ideology = ideology_rel_secularist
+				}
+				else = {
+					add_ideology = ideology_rel_moralist
+				}
+				bpm_reorder_ideologies = yes
+			}
+		}
+
+		# Fix: National Liberals should never end up with 2 religious stances.
+		ig:ig_national_liberals ?= {
+			if = {
+				limit = {
+					has_ideology = ideology:ideology_rel_secularist
+					has_ideology = ideology:ideology_rel_radical_secularist
+				}
+				bpm_remove_all_rel_ideologies = yes
+				if = {
+					limit = {
+						owner = {
+							OR = {
+								this = c:USA
+								country_has_primary_culture = cu:north_german
+								country_has_primary_culture = cu:south_german
+								country_has_primary_culture = cu:north_italian
+								country_has_primary_culture = cu:south_italian
+							}
+						}
+					}
+					add_ideology = ideology_rel_secularist
+				}
+				else_if = {
+					limit = { owner = c:BIC }
+					add_ideology = ideology_rel_pragmatic_moralist
+				}
+				else_if = {
+					limit = { owner = { bpm_country_is_latin_american = yes } }
+					add_ideology = ideology_rel_radical_secularist
+				}
+				else = {
+					add_ideology = ideology_rel_moralist
+				}
+				bpm_reorder_ideologies = yes
+			}
+		}
+	}
+}
+

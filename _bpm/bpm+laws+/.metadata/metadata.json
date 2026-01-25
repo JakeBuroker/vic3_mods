@@ -1,0 +1,12 @@
+{
+  "name" : "Laws+ + BPM Compatibility Patch (1.12.3)",
+	"id" : "",
+  "version" : "1.12.3",
+  "supported_game_version" : "1.12.*",
+  "short_description" : "",
+  "tags" : [],
+  "relationships" : [],
+  "game_custom_data" : {
+    "multiplayer_synchronized" : true
+  }
+}

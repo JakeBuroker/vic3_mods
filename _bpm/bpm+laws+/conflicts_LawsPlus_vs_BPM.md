@@ -1,0 +1,639 @@
+# LawsPlus vs BPM — conflict report (key-level heuristic)
+
+- LawsPlus root: `C:/Users/Andrey/Projects/vic3_mods_out/Laws+`
+- BPM root: `C:/Users/Andrey/Projects/vic3_mods_out/BPM`
+
+This report finds **identifier-level duplicates** (same key/id defined by both mods), even when file paths do not overlap. It is a heuristic and may include a few false positives.
+
+## common/*: duplicate top-level keys
+
+### common/ai_strategies — 3 duplicates
+- `ai_strategy_nationalist_agenda`
+  - LawsPlus: `common/ai_strategies/03_political_strategies_lp.txt`
+  - BPM: `common/ai_strategies/BPM_political_strategies.txt`
+- `ai_strategy_progressive_agenda`
+  - LawsPlus: `common/ai_strategies/03_political_strategies_lp.txt`
+  - BPM: `common/ai_strategies/BPM_political_strategies.txt`
+- `ai_strategy_reactionary_agenda`
+  - LawsPlus: `common/ai_strategies/03_political_strategies_lp.txt`
+  - BPM: `common/ai_strategies/BPM_political_strategies.txt`
+
+### common/amendments — 2 duplicates
+- `amendment_electoral_clientelism`
+  - LawsPlus: `common/amendments/00_amendments_historical_04_lp.txt`
+  - BPM: `common/amendments/bpm_amendments_historical_04.txt`
+- `amendment_tradition_of_free_elections`
+  - LawsPlus: `common/amendments/00_amendments_historical_04_lp.txt`
+  - BPM: `common/amendments/bpm_amendments_historical_04.txt`
+
+### common/character_templates — 3 duplicates
+- `agitator_alfred_hugenberg`
+  - LawsPlus: `common/character_templates/00_historical_agitators_lp.txt`
+  - BPM: `common/character_templates/zz_bpm_historical_agitators.txt`
+- `agitator_antonio_sardinha`
+  - LawsPlus: `common/character_templates/00_historical_agitators_lp.txt`
+  - BPM: `common/character_templates/zz_bpm_historical_agitators.txt`
+- `agitator_ernst_rohm`
+  - LawsPlus: `common/character_templates/00_historical_agitators_lp.txt`
+  - BPM: `common/character_templates/zz_bpm_historical_agitators.txt`
+
+### common/dynamic_country_names — 3 duplicates
+- `CAN`
+  - LawsPlus: `common/dynamic_country_names/laws_plus_dynamic_country_names.txt`
+  - BPM: `common/dynamic_country_names/zz_dynamic_country_names.txt`
+- `GER`
+  - LawsPlus: `common/dynamic_country_names/00_dynamic_country_names_lp.txt`
+  - BPM: `common/dynamic_country_names/bpm_dynamic_country_names.txt`
+- `XIN`
+  - LawsPlus: `common/dynamic_country_names/00_dynamic_country_names_lp.txt`
+  - BPM: `common/dynamic_country_names/bpm_dynamic_country_names.txt`
+
+### common/flag_definitions — 3 duplicates
+- `CAN`
+  - LawsPlus: `common/flag_definitions/00_flag_definitions_lp.txt`
+  - BPM: `common/flag_definitions/bpm_bnap_flag_definitions.txt`
+  - BPM: `common/flag_definitions/zz_bpm_00_flag_definitions.txt`
+- `CHI`
+  - LawsPlus: `common/flag_definitions/00_flag_definitions_lp.txt`
+  - BPM: `common/flag_definitions/zz_bpm_00_flag_definitions.txt`
+- `YUN`
+  - LawsPlus: `common/flag_definitions/laws_plus_flag_definitions.txt`
+  - BPM: `common/flag_definitions/zz_bpm_00_flag_definitions.txt`
+
+### common/government_types — 8 duplicates
+- `gov_absolute_empire`
+  - LawsPlus: `common/government_types/01_monarchies_lp.txt`
+  - BPM: `common/government_types/bpm_types_override.txt`
+- `gov_colonial_administration`
+  - LawsPlus: `common/government_types/01_colonial_administrations_lp.txt`
+  - BPM: `common/government_types/bpm_types_override.txt`
+- `gov_constitutional_empire`
+  - LawsPlus: `common/government_types/01_monarchies_lp.txt`
+  - BPM: `common/government_types/bpm_types_override.txt`
+- `gov_constitutional_kingdom`
+  - LawsPlus: `common/government_types/01_monarchies_lp.txt`
+  - BPM: `common/government_types/bpm_types_override.txt`
+- `gov_council_dictatorship`
+  - LawsPlus: `common/government_types/05_council_republics_lp.txt`
+  - BPM: `common/government_types/bpm_types_override.txt`
+- `gov_feudal_empire`
+  - LawsPlus: `common/government_types/01_monarchies_lp.txt`
+  - BPM: `common/government_types/bpm_types_override.txt`
+- `gov_kingdom`
+  - LawsPlus: `common/government_types/01_monarchies_lp.txt`
+  - BPM: `common/government_types/bpm_types_override.txt`
+- `gov_soviet_dictatorship`
+  - LawsPlus: `common/government_types/05_council_republics_lp.txt`
+  - BPM: `common/government_types/bpm_types_override.txt`
+
+### common/history/countries — 1 duplicates
+- `COUNTRIES`
+  - LawsPlus: `common/history/countries/arg - argentina.txt`
+  - LawsPlus: `common/history/countries/bol - bolivia.txt`
+  - LawsPlus: `common/history/countries/brz - brazil.txt`
+  - LawsPlus: `common/history/countries/chi - china.txt`
+  - LawsPlus: `common/history/countries/fra - france.txt`
+  - BPM: `common/history/countries/brz - brazil.txt`
+  - BPM: `common/history/countries/chi - china.txt`
+  - BPM: `common/history/countries/chl - chile.txt`
+  - BPM: `common/history/countries/fra - france.txt`
+  - BPM: `common/history/countries/ont - ontario.txt`
+
+### common/ideologies — 88 duplicates
+- `ideology_abolitionist`
+  - LawsPlus: `common/ideologies/01_character_ideologies_lp.txt`
+  - BPM: `common/ideologies/bpm_leader_ideologies.txt`
+- `ideology_agrarian`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_agrarian_jeffersonian`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_flavored_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_anarchist`
+  - LawsPlus: `common/ideologies/01_character_ideologies_lp.txt`
+  - BPM: `common/ideologies/bpm_leader_ideologies.txt`
+- `ideology_anti_clerical`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_anti_slavery`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_austrian_hegemony`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_flavored_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_authoritarian`
+  - LawsPlus: `common/ideologies/01_character_ideologies_lp.txt`
+  - BPM: `common/ideologies/bpm_leader_ideologies.txt`
+- `ideology_bakufu`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_flavored_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_bonapartist`
+  - LawsPlus: `common/ideologies/02_character_french_flavored_lp.txt`
+  - BPM: `common/ideologies/bpm_leader_ideologies.txt`
+- `ideology_buddhist_moralist`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_flavored_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_caudillismo`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_flavored_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_colonialist`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_flavored_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_communist`
+  - LawsPlus: `common/ideologies/01_character_ideologies_lp.txt`
+  - BPM: `common/ideologies/bpm_leader_ideologies.txt`
+- `ideology_confucian`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_flavored_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_constitutionalist`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_flavored_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_corporatist`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_corporatist_leader`
+  - LawsPlus: `common/ideologies/01_character_ideologies_lp.txt`
+  - BPM: `common/ideologies/bpm_leader_ideologies.txt`
+- `ideology_despotic_utopian`
+  - LawsPlus: `common/ideologies/01_character_ideologies_lp.txt`
+  - BPM: `common/ideologies/bpm_leader_ideologies.txt`
+- `ideology_egalitarian`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_egalitarian_modern`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_event_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_enclavist`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_flavored_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_ethno_nationalist`
+  - LawsPlus: `common/ideologies/01_character_ideologies_lp.txt`
+  - BPM: `common/ideologies/bpm_leader_ideologies.txt`
+- `ideology_fascist`
+  - LawsPlus: `common/ideologies/01_character_ideologies_lp.txt`
+  - BPM: `common/ideologies/bpm_leader_ideologies.txt`
+- `ideology_heavenly_kingdom_theocratic`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_flavored_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_hierarchic`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_hindu_moralist`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_flavored_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_humanitarian`
+  - LawsPlus: `common/ideologies/01_character_ideologies_lp.txt`
+  - BPM: `common/ideologies/bpm_leader_ideologies.txt`
+- `ideology_humanitarian_royalist`
+  - LawsPlus: `common/ideologies/01_character_ideologies_lp.txt`
+  - BPM: `common/ideologies/bpm_leader_ideologies.txt`
+- `ideology_individualist`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_integralist`
+  - LawsPlus: `common/ideologies/01_character_ideologies_lp.txt`
+  - BPM: `common/ideologies/bpm_leader_ideologies.txt`
+- `ideology_isolationist`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_jacksonian_democrat`
+  - LawsPlus: `common/ideologies/01_character_ideologies_lp.txt`
+  - BPM: `common/ideologies/bpm_leader_ideologies.txt`
+- `ideology_jingoist`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_lp.txt`
+  - BPM: `common/ideologies/bpm_mil_ig_ideologies.txt`
+- `ideology_jingoist_leader`
+  - LawsPlus: `common/ideologies/01_character_ideologies_lp.txt`
+  - BPM: `common/ideologies/bpm_leader_ideologies.txt`
+- `ideology_junker_paternalistic`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_flavored_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_laissez_faire`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_legitimist`
+  - LawsPlus: `common/ideologies/02_character_french_flavored_lp.txt`
+  - BPM: `common/ideologies/bpm_leader_ideologies.txt`
+- `ideology_liberal`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_liberal_leader`
+  - LawsPlus: `common/ideologies/01_character_ideologies_lp.txt`
+  - BPM: `common/ideologies/bpm_leader_ideologies.txt`
+- `ideology_liberal_modern`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_event_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_loyalist`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_luddite`
+  - LawsPlus: `common/ideologies/01_character_ideologies_lp.txt`
+  - BPM: `common/ideologies/bpm_leader_ideologies.txt`
+- `ideology_malthusian`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_flavored_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_market_liberal`
+  - LawsPlus: `common/ideologies/01_character_ideologies_lp.txt`
+  - BPM: `common/ideologies/bpm_leader_ideologies.txt`
+- `ideology_meritocratic`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_modernizer`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_event_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_moralist`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_nihilist`
+  - LawsPlus: `common/ideologies/01_character_ideologies_lp.txt`
+  - BPM: `common/ideologies/bpm_leader_ideologies.txt`
+- `ideology_oligarchic`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_oriental_orthodox_patriarch`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_flavored_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_orleanist`
+  - LawsPlus: `common/ideologies/02_character_french_flavored_lp.txt`
+  - BPM: `common/ideologies/bpm_leader_ideologies.txt`
+- `ideology_orthodox_patriarch`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_flavored_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_pacifist`
+  - LawsPlus: `common/ideologies/01_character_ideologies_lp.txt`
+  - BPM: `common/ideologies/bpm_leader_ideologies.txt`
+- `ideology_papal_moralist`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_flavored_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_papal_paternalistic`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_flavored_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_particularist`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_paternalistic`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_patriarchal`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_patriarchal_suffrage`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_event_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_patriotic`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_pious`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_plutocratic`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_populist`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_positivist`
+  - LawsPlus: `common/ideologies/01_character_ideologies_lp.txt`
+  - BPM: `common/ideologies/bpm_leader_ideologies.txt`
+- `ideology_proletarian`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_protectionist`
+  - LawsPlus: `common/ideologies/01_character_ideologies_lp.txt`
+  - BPM: `common/ideologies/bpm_leader_ideologies.txt`
+- `ideology_radical`
+  - LawsPlus: `common/ideologies/01_character_ideologies_lp.txt`
+  - BPM: `common/ideologies/bpm_leader_ideologies.txt`
+- `ideology_reactionary`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_reformer`
+  - LawsPlus: `common/ideologies/01_character_ideologies_lp.txt`
+  - BPM: `common/ideologies/bpm_leader_ideologies.txt`
+- `ideology_republican`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_republican_leader`
+  - LawsPlus: `common/ideologies/01_character_ideologies_lp.txt`
+  - BPM: `common/ideologies/bpm_leader_ideologies.txt`
+- `ideology_republican_paternalistic`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_flavored_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_royalist`
+  - LawsPlus: `common/ideologies/01_character_ideologies_lp.txt`
+  - BPM: `common/ideologies/bpm_leader_ideologies.txt`
+- `ideology_russian_patriarch`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_flavored_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_scholar_paternalistic`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_flavored_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_shinto_moralist`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_flavored_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_sikh_moralist`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_flavored_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_social_democrat`
+  - LawsPlus: `common/ideologies/01_character_ideologies_lp.txt`
+  - BPM: `common/ideologies/bpm_leader_ideologies.txt`
+- `ideology_socialist`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_sovereignist`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_flavored_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_sovereignist_leader`
+  - LawsPlus: `common/ideologies/01_character_ideologies_lp.txt`
+  - BPM: `common/ideologies/bpm_leader_ideologies.txt`
+- `ideology_theocrat`
+  - LawsPlus: `common/ideologies/01_character_ideologies_lp.txt`
+  - BPM: `common/ideologies/bpm_leader_ideologies.txt`
+- `ideology_traditionalist`
+  - LawsPlus: `common/ideologies/01_character_ideologies_lp.txt`
+  - BPM: `common/ideologies/bpm_leader_ideologies.txt`
+- `ideology_traditionalist_minoritarian`
+  - LawsPlus: `common/ideologies/01_character_ideologies_lp.txt`
+  - BPM: `common/ideologies/bpm_leader_ideologies.txt`
+- `ideology_utilitarian_leader`
+  - LawsPlus: `common/ideologies/01_character_ideologies_lp.txt`
+  - BPM: `common/ideologies/bpm_leader_ideologies.txt`
+- `ideology_utilitarian_millian`
+  - LawsPlus: `common/ideologies/00_ig_ideologies_flavored_lp.txt`
+  - BPM: `common/ideologies/zz_00_ig_ideologies.txt`
+- `ideology_vanguardist`
+  - LawsPlus: `common/ideologies/01_character_ideologies_lp.txt`
+  - BPM: `common/ideologies/bpm_leader_ideologies.txt`
+
+### common/interest_groups — 3 duplicates
+- `ig_armed_forces`
+  - LawsPlus: `common/interest_groups/00_armed_forces_lp.txt`
+  - BPM: `common/interest_groups/zzzz_armed_forces.txt`
+- `ig_devout`
+  - LawsPlus: `common/interest_groups/00_devout_lp.txt`
+  - BPM: `common/interest_groups/zzzz_devout.txt`
+- `ig_petty_bourgeoisie`
+  - LawsPlus: `common/interest_groups/00_petty_bourgeoisie_lp.txt`
+  - BPM: `common/interest_groups/zzzz_petty_bourgeoisie.txt`
+
+### common/journal_entries — 8 duplicates
+- `je_austrian_neo_absolutism`
+  - LawsPlus: `common/journal_entries/05_austria_journal_entries_lp.txt`
+  - BPM: `common/journal_entries/zz_bpm_05_austria_journal_entries.txt`
+- `je_liberalism_1`
+  - LawsPlus: `common/journal_entries/00_liberalism_lp.txt`
+  - BPM: `common/journal_entries/zz_bpm_00_liberalism.txt`
+- `je_liberalism_3`
+  - LawsPlus: `common/journal_entries/00_liberalism_lp.txt`
+  - BPM: `common/journal_entries/zz_bpm_00_liberalism.txt`
+- `je_liberalism_4`
+  - LawsPlus: `common/journal_entries/00_liberalism_lp.txt`
+  - BPM: `common/journal_entries/zz_bpm_00_liberalism.txt`
+- `je_new_republic`
+  - LawsPlus: `common/journal_entries/02_vargas_lp.txt`
+  - BPM: `common/journal_entries/zz_bpm_03_vargas.txt`
+- `je_springtime_of_the_peoples`
+  - LawsPlus: `common/journal_entries/00_peoples_springtime_je_lp.txt`
+  - BPM: `common/journal_entries/BPM_je_peoples_springtime.txt`
+- `je_standestaat`
+  - LawsPlus: `common/journal_entries/05_austrian_fascism_lp.txt`
+  - BPM: `common/journal_entries/zz_05_austrian_fascism.txt`
+- `je_vanguard`
+  - LawsPlus: `common/journal_entries/00_communism_lp.txt`
+  - BPM: `common/journal_entries/zz_bpm_00_communism.txt`
+
+### common/law_groups — 5 duplicates
+- `lawgroup_distribution_of_power`
+  - LawsPlus: `common/law_groups/00_laws.txt`
+  - BPM: `common/law_groups/BPM_laws.txt`
+- `lawgroup_governance_principles`
+  - LawsPlus: `common/law_groups/00_laws.txt`
+  - BPM: `common/law_groups/BPM_laws.txt`
+- `lawgroup_labour_associations`
+  - LawsPlus: `common/law_groups/00_laws.txt`
+  - BPM: `common/law_groups/BPM_laws.txt`
+- `lawgroup_land_reform`
+  - LawsPlus: `common/law_groups/00_laws.txt`
+  - BPM: `common/law_groups/BPM_laws.txt`
+- `lawgroup_slavery`
+  - LawsPlus: `common/law_groups/00_laws.txt`
+  - BPM: `common/law_groups/BPM_laws.txt`
+
+### common/laws — 38 duplicates
+- `law_agrarianism`
+  - LawsPlus: `common/laws/00_economic_system.txt`
+  - BPM: `common/laws/BPM_economic_system.txt`
+- `law_anarchy`
+  - LawsPlus: `common/laws/00_distribution_of_power.txt`
+  - BPM: `common/laws/BPM_distribution_of_power.txt`
+- `law_appointed_bureaucrats`
+  - LawsPlus: `common/laws/00_bureaucracy.txt`
+  - BPM: `common/laws/BPM_bureaucracy.txt`
+- `law_autocracy`
+  - LawsPlus: `common/laws/00_distribution_of_power.txt`
+  - BPM: `common/laws/BPM_distribution_of_power.txt`
+- `law_census_voting`
+  - LawsPlus: `common/laws/00_distribution_of_power.txt`
+  - BPM: `common/laws/BPM_distribution_of_power.txt`
+- `law_colonial_administration`
+  - LawsPlus: `common/laws/00_governance_principles.txt`
+  - BPM: `common/laws/BPM_distribution_of_power.txt`
+- `law_command_economy`
+  - LawsPlus: `common/laws/00_economic_system.txt`
+  - BPM: `common/laws/BPM_economic_system.txt`
+- `law_cooperative_ownership`
+  - LawsPlus: `common/laws/00_economic_system.txt`
+  - BPM: `common/laws/BPM_economic_system.txt`
+- `law_corporate_state`
+  - LawsPlus: `common/laws/00_governance_principles.txt`
+  - BPM: `common/laws/BPM_governance_principles.txt`
+- `law_council_republic`
+  - LawsPlus: `common/laws/00_governance_principles.txt`
+  - BPM: `common/laws/BPM_governance_principles.txt`
+- `law_crownland_diets`
+  - LawsPlus: `common/laws/00_bureaucracy.txt`
+  - BPM: `common/laws/BPM_bureaucracy.txt`
+- `law_elder_council`
+  - LawsPlus: `common/laws/00_distribution_of_power.txt`
+  - BPM: `common/laws/BPM_distribution_of_power.txt`
+- `law_elected_bureaucrats`
+  - LawsPlus: `common/laws/00_bureaucracy.txt`
+  - BPM: `common/laws/BPM_bureaucracy.txt`
+- `law_freedom_of_conscience`
+  - LawsPlus: `common/laws/00_church_and_state.txt`
+  - BPM: `common/laws/BPM_church_and_state.txt`
+- `law_guaranteed_liberties`
+  - LawsPlus: `common/laws/00_internal_security.txt`
+  - BPM: `common/laws/BPM_internal_security.txt`
+- `law_hereditary_bureaucrats`
+  - LawsPlus: `common/laws/00_bureaucracy.txt`
+  - BPM: `common/laws/BPM_bureaucracy.txt`
+- `law_industry_banned`
+  - LawsPlus: `common/laws/00_economic_system.txt`
+  - BPM: `common/laws/BPM_economic_system.txt`
+- `law_interventionism`
+  - LawsPlus: `common/laws/00_economic_system.txt`
+  - BPM: `common/laws/BPM_economic_system.txt`
+- `law_laissez_faire`
+  - LawsPlus: `common/laws/00_economic_system.txt`
+  - BPM: `common/laws/BPM_economic_system.txt`
+- `law_landed_voting`
+  - LawsPlus: `common/laws/00_distribution_of_power.txt`
+  - BPM: `common/laws/BPM_distribution_of_power.txt`
+- `law_monarchy`
+  - LawsPlus: `common/laws/00_governance_principles.txt`
+  - BPM: `common/laws/BPM_governance_principles.txt`
+- `law_national_guard`
+  - LawsPlus: `common/laws/00_internal_security.txt`
+  - BPM: `common/laws/BPM_internal_security.txt`
+- `law_neo_absolutism`
+  - LawsPlus: `common/laws/00_distribution_of_power.txt`
+  - BPM: `common/laws/BPM_distribution_of_power.txt`
+- `law_oligarchy`
+  - LawsPlus: `common/laws/00_distribution_of_power.txt`
+  - BPM: `common/laws/BPM_distribution_of_power.txt`
+- `law_organic_regulation`
+  - LawsPlus: `common/laws/00_distribution_of_power.txt`
+  - BPM: `common/laws/BPM_distribution_of_power.txt`
+- `law_parliamentary_republic`
+  - LawsPlus: `common/laws/00_governance_principles.txt`
+  - BPM: `common/laws/BPM_governance_principles.txt`
+- `law_presidential_republic`
+  - LawsPlus: `common/laws/00_governance_principles.txt`
+  - BPM: `common/laws/BPM_governance_principles.txt`
+- `law_secret_police`
+  - LawsPlus: `common/laws/00_internal_security.txt`
+  - BPM: `common/laws/BPM_internal_security.txt`
+- `law_single_party_state`
+  - LawsPlus: `common/laws/00_distribution_of_power.txt`
+  - BPM: `common/laws/BPM_distribution_of_power.txt`
+- `law_state_atheism`
+  - LawsPlus: `common/laws/00_church_and_state.txt`
+  - BPM: `common/laws/BPM_church_and_state.txt`
+- `law_state_religion`
+  - LawsPlus: `common/laws/00_church_and_state.txt`
+  - BPM: `common/laws/BPM_church_and_state.txt`
+- `law_technocracy`
+  - LawsPlus: `common/laws/00_distribution_of_power.txt`
+  - BPM: `common/laws/BPM_distribution_of_power.txt`
+- `law_theocracy`
+  - LawsPlus: `common/laws/00_governance_principles.txt`
+  - BPM: `common/laws/BPM_governance_principles.txt`
+- `law_total_separation`
+  - LawsPlus: `common/laws/00_church_and_state.txt`
+  - BPM: `common/laws/BPM_church_and_state.txt`
+- `law_traditionalism`
+  - LawsPlus: `common/laws/00_economic_system.txt`
+  - BPM: `common/laws/BPM_economic_system.txt`
+- `law_universal_suffrage`
+  - LawsPlus: `common/laws/00_distribution_of_power.txt`
+  - BPM: `common/laws/BPM_distribution_of_power.txt`
+- `law_wealth_voting`
+  - LawsPlus: `common/laws/00_distribution_of_power.txt`
+  - BPM: `common/laws/BPM_distribution_of_power.txt`
+- `law_womens_suffrage`
+  - LawsPlus: `common/laws/01_rights_of_women_lp.txt`
+  - BPM: `common/laws/BPM_rights_of_women.txt`
+
+### common/on_actions — 1 duplicates
+- `on_law_checkpoint_debate`
+  - LawsPlus: `common/on_actions/000_code_on_actions_lp.txt`
+  - BPM: `common/on_actions/BPM_law_enactment_on_actions.txt`
+
+### common/parties — 11 duplicates
+- `agrarian_party`
+  - LawsPlus: `common/parties/agrarian_party_lp.txt`
+  - BPM: `common/parties/zzzz_agrarian_party.txt`
+- `anarchist_party`
+  - LawsPlus: `common/parties/anarchist_party_lp.txt`
+  - BPM: `common/parties/zzzz_anarchist_party.txt`
+- `communist_party`
+  - LawsPlus: `common/parties/communist_party_lp.txt`
+  - BPM: `common/parties/zzzz_communist_party.txt`
+- `conservative_party`
+  - LawsPlus: `common/parties/conservative_party_lp.txt`
+  - BPM: `common/parties/zzzz_conservative_party.txt`
+- `fascist_party`
+  - LawsPlus: `common/parties/fascist_party_lp.txt`
+  - BPM: `common/parties/zzzz_fascist_party.txt`
+- `free_trade_party`
+  - LawsPlus: `common/parties/free_trade_party_lp.txt`
+  - BPM: `common/parties/zzzz_free_trade_party.txt`
+- `liberal_party`
+  - LawsPlus: `common/parties/liberal_party_lp.txt`
+  - BPM: `common/parties/zzzz_liberal_party.txt`
+- `military_party`
+  - LawsPlus: `common/parties/military_party_lp.txt`
+  - BPM: `common/parties/zzzz_military_party.txt`
+- `radical_party`
+  - LawsPlus: `common/parties/radical_party_lp.txt`
+  - BPM: `common/parties/zzzz_radical_party.txt`
+- `religious_party`
+  - LawsPlus: `common/parties/religious_party_lp.txt`
+  - BPM: `common/parties/zzzz_religious_party.txt`
+- `social_democrat_party`
+  - LawsPlus: `common/parties/social_democrats_party_lp.txt`
+  - BPM: `common/parties/zzzz_social_democrats_party.txt`
+
+### common/political_movements — 8 duplicates
+- `movement_communist`
+  - LawsPlus: `common/political_movements/00_ideological_movements_lp.txt`
+  - BPM: `common/political_movements/zzzz_bpm_ideological_socialist_movements.txt`
+- `movement_corporatist`
+  - LawsPlus: `common/political_movements/00_ideological_movements_lp.txt`
+  - BPM: `common/political_movements/zzzz_bpm_ideological_uncategorized_movements.txt`
+- `movement_cultural_majority`
+  - LawsPlus: `common/political_movements/02_cultural_movement_lp.txt`
+  - BPM: `common/political_movements/zzzz_bpm_cultural_movement.txt`
+- `movement_fascist`
+  - LawsPlus: `common/political_movements/00_ideological_movements_lp.txt`
+  - BPM: `common/political_movements/zzzz_bpm_ideological_reactionary_movements.txt`
+- `movement_modernizer`
+  - LawsPlus: `common/political_movements/00_ideological_movements_lp.txt`
+  - BPM: `common/political_movements/zzzz_bpm_ideological_liberal_movements.txt`
+- `movement_radical`
+  - LawsPlus: `common/political_movements/00_ideological_movements_lp.txt`
+  - BPM: `common/political_movements/zzzz_bpm_ideological_liberal_movements.txt`
+- `movement_royalist_absolutist`
+  - LawsPlus: `common/political_movements/00_ideological_movements_lp.txt`
+  - BPM: `common/political_movements/zzzz_bpm_ideological_reactionary_movements.txt`
+- `movement_royalist_constitutional`
+  - LawsPlus: `common/political_movements/00_ideological_movements_lp.txt`
+  - BPM: `common/political_movements/zzzz_bpm_ideological_liberal_movements.txt`
+
+### common/scripted_effects — 3 duplicates
+- `calculate_caudillo_progress`
+  - LawsPlus: `common/scripted_effects/00_victoria_scripted_effects_lp.txt`
+  - BPM: `common/scripted_effects/zz_bpm_00_victoria_scripted_effects.txt`
+- `calculate_communism_progress`
+  - LawsPlus: `common/scripted_effects/00_victoria_scripted_effects_lp.txt`
+  - BPM: `common/scripted_effects/zz_bpm_00_victoria_scripted_effects.txt`
+- `calculate_populism_progress`
+  - LawsPlus: `common/scripted_effects/00_victoria_scripted_effects_lp.txt`
+  - BPM: `common/scripted_effects/zz_bpm_00_victoria_scripted_effects.txt`
+
+### common/scripted_triggers — 2 duplicates
+- `ig_is_liberal`
+  - LawsPlus: `common/scripted_triggers/00_scripted_triggers_lp.txt`
+  - BPM: `common/scripted_triggers/zz_bpm_00_scripted_triggers.txt`
+- `ig_is_reactionary`
+  - LawsPlus: `common/scripted_triggers/00_scripted_triggers_lp.txt`
+  - BPM: `common/scripted_triggers/zz_bpm_00_scripted_triggers.txt`
+
+## localization: duplicate localization keys
+- Total duplicate localization keys: **0**
+
+## events: duplicate event ids (`id = ...` anywhere in events/*.txt)
+- Total duplicate event ids: **4**
+  - `liberalism.3`
+    - LawsPlus: `events/000_liberalism_lp.txt`
+    - BPM: `events/_liberalism.txt`
+  - `liberalism.4`
+    - LawsPlus: `events/000_liberalism_lp.txt`
+    - BPM: `events/_liberalism.txt`
+  - `natural_borders.4`
+    - LawsPlus: `events/agitators_events/000_natural_borders_lp.txt`
+    - BPM: `events/_natural_borders.txt`
+  - `peoples_springtime.10`
+    - LawsPlus: `events/000_french_pretenders_lp.txt`
+    - BPM: `events/_peoples_springtime.txt`

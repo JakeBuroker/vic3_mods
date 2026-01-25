@@ -1,0 +1,626 @@
+
+INJECT:law_state_religion = { # 국교
+	group = lawgroup_church_and_state
+
+	icon = "gfx/interface/icons/law_icons/state_religion.dds"
+
+	progressiveness = -50
+
+	on_enact = {
+		recalculate_pop_ig_support = yes
+		if = {
+			limit = {
+				has_law = law_type:law_state_atheism
+			}
+			set_state_religion = root.country_definition.religion
+		}
+		if = {
+			limit = {
+				has_modifier = antireligious_policies
+			}
+			remove_modifier = antireligious_policies
+		}
+		if = { # Laws +
+			limit = {
+				has_modifier = blasphemy_movement
+			}
+			remove_modifier = blasphemy_movement
+		}
+	}
+
+	modifier = {
+		interest_group_ig_devout_pol_str_mult = 0.3
+		country_authority_add = 200
+		country_state_religion_wages_mult = 0.1
+		country_non_state_religion_wages_mult = -0.1
+
+		country_acceptance_state_religion_add = 25
+		country_acceptance_shared_religious_trait_add = 0
+		country_acceptance_religion_base_add = -25
+
+		country_allow_conversion_violent_hostility_bool = yes
+		country_allow_conversion_cultural_erasure_bool = yes
+		country_allow_conversion_open_prejudice_bool = yes
+		country_allow_conversion_second_rate_citizen_bool = yes
+		country_allow_conversion_full_acceptance_bool = yes
+	}
+
+	can_impose = {
+		OR = {
+			AND = {
+				is_in_same_power_bloc = scope:target_country
+				AND = {
+					modifier:country_can_impose_same_lawgroup_church_and_state_in_power_bloc_bool = yes
+					has_law = scope:law
+				}
+			}
+			can_impose_law_default = yes
+		}
+	}
+
+	ai_will_do = {
+		exists = ruler
+		ruler = {
+			OR = {
+				has_ideology = ideology:ideology_theocrat
+				has_ideology = ideology:ideology_clerical_fascist	# Laws +
+				has_ideology = ideology:ideology_clerical			# Laws +
+			}
+		}
+	}
+
+	ai_enact_weight_modifier = { #Petitions
+		value = 0
+
+		if = {
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
+			add = 750
+		}
+	}
+
+	ai_impose_chance = {
+		value = 0
+
+		if = {
+			limit = {
+				has_law = law_type:law_state_religion
+				power_bloc ?= { has_identity = identity:identity_religious }
+				religion = scope:target_country.religion
+			}
+
+			add = base_impose_law_weight
+
+			# Very important for religious blocs
+			if = {
+				limit = { scope:target_country = { has_law = law_type:law_freedom_of_conscience } }
+				multiply = 2
+			}
+			else = {
+				multiply = 5
+			}
+		}
+
+		if = {
+			limit = {
+				scope:target_country = {
+					c:BIC ?= this
+					OR = {
+						has_journal_entry = je_british_dictate_plantations
+						has_journal_entry = je_british_dictate_military
+						has_journal_entry = je_british_dictate_universities
+					}
+				}
+			}
+			multiply = 0
+		}
+	}
+}
+
+INJECT:law_restored_christianity = { # 회복된 기독교	# Laws +
+	group = lawgroup_church_and_state
+	parent = law_state_religion
+
+	icon = "gfx/interface/icons/law_icons/restored_christianity.dds"
+
+	progressiveness = 0
+
+	is_visible = {
+		OR = {
+			AND = {
+				exists = c:USA
+				c:USA = ROOT
+			}
+			AND = {
+				exists = c:DES
+				c:DES = ROOT
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_UTAH
+			is_incorporated = yes
+		}
+	}
+
+	can_enact = {
+		OR = {
+			AND = {
+				exists = c:USA
+				c:USA = ROOT
+			}
+			AND = {
+				exists = c:DES
+				c:DES = ROOT
+			}
+		}
+		any_scope_state = {
+			state_region = s:STATE_UTAH
+			is_incorporated = yes
+		}
+	}
+
+	on_enact = {
+		recalculate_pop_ig_support = yes
+		add_modifier = {
+			name = mormon_missionary
+			days = long_modifier_time
+		}
+		custom_tooltip = {
+			text = mormonism_conversion_tt
+			every_scope_state = {
+				limit = {
+					state_region = s:STATE_UTAH
+				}
+				convert_population = {
+					target = rel:mormon
+					value = 0.5
+				}
+			}
+			every_scope_state = {
+				limit = {
+					state_region = s:STATE_NEW_YORK
+				}
+				convert_population = {
+					target = rel:mormon
+					value = 0.25
+				}
+			}
+			every_scope_state = {
+				limit = {
+					is_incorporated = yes
+				}
+				convert_population = {
+					target = rel:mormon
+					value = 0.1
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_modifier = antireligious_policies
+			}
+			remove_modifier = antireligious_policies
+		}
+		if = {
+			limit = {
+				has_modifier = blasphemy_movement
+			}
+			remove_modifier = blasphemy_movement
+		}
+	}
+
+	on_activate = {
+		set_state_religion = rel:mormon
+	}
+
+	modifier = {
+		interest_group_ig_devout_pol_str_mult = 0.3
+		country_authority_add = 150
+		country_state_religion_wages_mult = 0.05
+		country_non_state_religion_wages_mult = -0.05
+
+		country_acceptance_state_religion_add = 20
+		country_acceptance_shared_religious_trait_add = 15
+		country_acceptance_religion_base_add = 0
+
+		country_allow_conversion_violent_hostility_bool = yes
+		country_allow_conversion_cultural_erasure_bool = yes
+		country_allow_conversion_open_prejudice_bool = yes
+		country_allow_conversion_second_rate_citizen_bool = yes
+		country_allow_conversion_full_acceptance_bool = yes
+	}
+
+	ai_will_do = {
+		exists = ruler
+		ruler = {
+			has_ideology = ideology:ideology_traditionalist
+		}
+	}
+
+	ai_enact_weight_modifier = { #Petitions
+		value = 0
+
+		if = {
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
+			add = 750
+		}
+	}
+}
+
+INJECT:law_freedom_of_conscience = { # 신앙의 자유
+	group = lawgroup_church_and_state
+
+	icon = "gfx/interface/icons/law_icons/freedom_of_conscience.dds"
+
+	progressiveness = 0
+
+	unlocking_technologies = {
+		rationalism
+	}
+
+	disallowing_laws = {
+		law_theocracy
+		law_ecclesiarchy	# Laws +
+	}
+
+	on_enact = {
+		recalculate_pop_ig_support = yes
+		if = {
+			limit = {
+				has_law = law_type:law_state_atheism
+			}
+			set_state_religion = root.country_definition.religion
+		}
+		if = {
+			limit = {
+				has_modifier = antireligious_policies
+			}
+			remove_modifier = antireligious_policies
+		}
+		if = { # Laws +
+			limit = {
+				has_modifier = blasphemy_movement
+			}
+			remove_modifier = blasphemy_movement
+		}
+	}
+
+	modifier = {
+		interest_group_ig_devout_pol_str_mult = 0.15
+		country_authority_add = 100
+		country_state_religion_wages_mult = 0.05
+		country_non_state_religion_wages_mult = -0.05
+
+		country_acceptance_state_religion_add = 20
+		country_acceptance_shared_religious_trait_add = 15
+		country_acceptance_religion_base_add = 0
+
+		country_allow_conversion_violent_hostility_bool = yes
+		country_allow_conversion_cultural_erasure_bool = yes
+		country_allow_conversion_open_prejudice_bool = yes
+		country_allow_conversion_second_rate_citizen_bool = no
+		country_allow_conversion_full_acceptance_bool = no
+	}
+
+	can_impose = {
+		OR = {
+			AND = {
+				is_in_same_power_bloc = scope:target_country
+				AND = {
+					modifier:country_can_impose_same_lawgroup_church_and_state_in_power_bloc_bool = yes
+					has_law = scope:law
+				}
+			}
+			can_impose_law_default = yes
+		}
+	}
+
+	ai_enact_weight_modifier = { #Petitions
+		value = 0
+
+		if = {
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
+			add = 750
+		}
+
+		if = {
+			limit = {
+				has_journal_entry = je_sick_man_education
+				has_law = law_type:law_state_religion
+			}
+			add = 1000
+		}
+	}
+}
+
+INJECT:law_religious_pluralism = { # 종교 다원주의	# Laws +
+	group = lawgroup_church_and_state
+
+	icon = "gfx/interface/icons/law_icons/religious_pluralism.dds"
+
+	progressiveness = 50
+
+	unlocking_technologies = {
+		egalitarianism
+	}
+
+	disallowing_laws = {
+		law_theocracy
+		law_ecclesiarchy	# Laws +
+	}
+
+	on_enact = {
+		recalculate_pop_ig_support = yes
+		if = {
+			limit = {
+				has_law = law_type:law_state_atheism
+			}
+			set_state_religion = root.country_definition.religion
+		}
+		if = {
+			limit = {
+				has_modifier = antireligious_policies
+			}
+			remove_modifier = antireligious_policies
+		}
+		if = { # Laws +
+			limit = {
+				has_modifier = blasphemy_movement
+			}
+			remove_modifier = blasphemy_movement
+		}
+	}
+
+	modifier = {
+		interest_group_ig_devout_pol_str_mult = 0.1	
+		country_authority_add = 50
+
+		country_acceptance_state_religion_add = 20
+		country_acceptance_shared_religious_trait_add = 15
+		country_acceptance_religion_base_add = 15
+
+		country_allow_conversion_violent_hostility_bool = yes
+		country_allow_conversion_cultural_erasure_bool = no
+		country_allow_conversion_open_prejudice_bool = no
+		country_allow_conversion_second_rate_citizen_bool = no
+		country_allow_conversion_full_acceptance_bool = no
+	}
+
+	can_impose = {
+		OR = {
+			AND = {
+				is_in_same_power_bloc = scope:target_country
+				AND = {
+					modifier:country_can_impose_same_lawgroup_church_and_state_in_power_bloc_bool = yes
+					has_law = scope:law
+				}
+			}
+			can_impose_law_default = yes
+		}
+	}
+
+	ai_enact_weight_modifier = { #Petitions
+		value = 0
+		
+		if = {
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
+			add = 750
+		}
+		
+		if = {
+			limit = { 
+				has_journal_entry = je_sick_man_education
+				has_law = law_type:law_state_religion
+			}
+			add = 1000
+		}
+	}
+}
+
+INJECT:law_total_separation = { # 완전 분리
+	group = lawgroup_church_and_state
+
+	icon = "gfx/interface/icons/law_icons/total_separation.dds"
+
+	progressiveness = 50
+
+	unlocking_technologies = {
+		empiricism
+	}
+
+	disallowing_laws = {
+		law_theocracy
+		law_ecclesiarchy	# Laws +
+	}
+
+	can_enact = {
+		OR = {
+			is_power_bloc_leader = no
+			power_bloc ?= {
+				NOT = { has_identity = identity:identity_religious }
+			}
+		}
+	}
+
+	on_enact = {
+		recalculate_pop_ig_support = yes
+		if = {
+			limit = {
+				has_law = law_type:law_state_atheism
+			}
+			set_state_religion = root.country_definition.religion
+		}
+		if = {
+			limit = {
+				has_modifier = antireligious_policies
+			}
+			remove_modifier = antireligious_policies
+		}
+		if = { # Laws +
+			limit = {
+				has_modifier = blasphemy_movement
+			}
+			remove_modifier = blasphemy_movement
+		}
+	}
+
+	modifier = {
+		country_acceptance_state_religion_add = 15
+		country_acceptance_shared_religious_trait_add = 15
+		country_acceptance_religion_base_add = 15
+
+		country_allow_conversion_violent_hostility_bool = no
+		country_allow_conversion_cultural_erasure_bool = no
+		country_allow_conversion_open_prejudice_bool = no
+		country_allow_conversion_second_rate_citizen_bool = no
+		country_allow_conversion_full_acceptance_bool = no
+	}
+
+	can_impose = {
+		OR = {
+			AND = {
+				is_in_same_power_bloc = scope:target_country
+				AND = {
+					modifier:country_can_impose_same_lawgroup_church_and_state_in_power_bloc_bool = yes
+					has_law = scope:law
+				}
+			}
+			can_impose_law_default = yes
+		}
+	}
+
+	ai_enact_weight_modifier = { #Petitions
+		value = 0
+
+		if = {
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
+			add = 750
+		}
+	}
+}
+
+INJECT:law_state_atheism = { # 국가 무신론주의
+	group = lawgroup_church_and_state
+
+	icon = "gfx/interface/icons/law_icons/state_atheism.dds"
+
+	progressiveness = 0
+
+	unlocking_technologies = {
+		empiricism
+	}
+
+	disallowing_laws = {
+		law_theocracy
+		law_ecclesiarchy	# Laws +
+	}
+
+	can_enact = {
+		ig:ig_devout = {
+			is_in_government = no
+		}
+		OR = {
+			is_power_bloc_leader = no
+			power_bloc ?= {
+				NOT = { has_identity = identity:identity_religious }
+			}
+		}
+	}
+
+	modifier = {
+		interest_group_ig_devout_pol_str_mult = -0.5
+		state_conversion_mult = 0.25
+		country_authority_add = 200
+
+		country_acceptance_state_religion_add = 15
+		country_acceptance_shared_religious_trait_add = 0
+		country_acceptance_religion_base_add = -10
+
+		country_allow_conversion_violent_hostility_bool = yes
+		country_allow_conversion_cultural_erasure_bool = yes
+		country_allow_conversion_open_prejudice_bool = yes
+		country_allow_conversion_second_rate_citizen_bool = yes
+		country_allow_conversion_full_acceptance_bool = yes
+	}
+
+	on_enact = {
+		add_modifier = {
+			name = antireligious_policies
+			days = long_modifier_time
+		}
+		custom_tooltip = {
+			text = state_atheism_conversion_tt
+			every_scope_state = {
+				limit = {
+					is_incorporated = yes
+				}
+				convert_population = {
+					target = rel:atheist
+					value = 0.25
+				}
+			}
+		}
+		recalculate_pop_ig_support = yes
+	}
+
+	on_activate = {
+		set_state_religion = rel:atheist
+	}
+
+	can_impose = {
+		OR = {
+			AND = {
+				is_in_same_power_bloc = scope:target_country
+				AND = {
+					modifier:country_can_impose_same_lawgroup_church_and_state_in_power_bloc_bool = yes
+					has_law = scope:law
+				}
+			}
+			can_impose_law_default = yes
+		}
+	}
+
+	ai_enact_weight_modifier = { #Petitions
+		value = 0
+
+		if = {
+			limit = { ai_has_enact_weight_modifier_journal_entries = yes }
+			add = 750
+		}
+	}
+
+	ai_impose_chance = {
+		value = 0
+
+		if = {
+			limit = {
+				has_law = law_type:law_state_atheism
+				power_bloc ?= { has_identity = identity:identity_ideological_union }
+			}
+
+			add = base_impose_law_weight
+
+			# Atheist leaders of ideological unions want to spread the cult of reason
+			if = {
+				limit = { scope:target_country = { has_law = law_type:law_total_separation } }
+				multiply = 0.5
+			}
+			else = {
+				multiply = 2
+			}
+		}
+
+		if = {
+			limit = {
+				scope:target_country = {
+					c:BIC ?= this
+					OR = {
+						has_journal_entry = je_british_dictate_plantations
+						has_journal_entry = je_british_dictate_military
+						has_journal_entry = je_british_dictate_universities
+					}
+				}
+			}
+			multiply = 0
+		}
+	}
+}

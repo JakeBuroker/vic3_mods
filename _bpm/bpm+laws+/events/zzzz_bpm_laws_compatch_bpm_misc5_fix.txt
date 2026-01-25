@@ -1,0 +1,36 @@
+# Compatch fix (runs at game start via BPM on_action -> bpm_misc.5):
+# - Keep BPM's original behavior.
+# - Ensure IG ideology placeholders are present and ordered (prevents "broken placeholder"/missing category slots in UI).
+
+bpm_misc.5 = {
+	type = country_event
+	placement = root
+	hidden = yes
+
+	trigger = {
+		
+	}
+
+	immediate = {
+		# Original BPM behavior
+		recalculate_pop_ig_support = yes
+
+		# Ensure BPM ideology categories are always in a sane state immediately on game start.
+		every_interest_group = { bpm_reorder_ideologies = yes }
+
+		# Extra safety: if some categories still don't show (UI relies on placeholders), force placeholders on key IGs.
+		ig:ig_intelligentsia = {
+			add_ideology = ideology_exe_placeholder
+			add_ideology = ideology_wel_placeholder
+			bpm_reorder_ideologies = yes
+		}
+		ig:ig_industrialists = {
+			add_ideology = ideology_exe_placeholder
+			add_ideology = ideology_dop_placeholder
+			add_ideology = ideology_wel_placeholder
+			add_ideology = ideology_rel_placeholder
+			bpm_reorder_ideologies = yes
+		}
+	}
+}
+
