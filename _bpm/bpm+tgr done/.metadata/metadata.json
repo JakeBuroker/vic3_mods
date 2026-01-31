@@ -1,0 +1,46 @@
+{
+  "name": "ComPatch BPM + TGR mini",
+  "id": "",
+  "version": "1.12.3",
+  "supported_game_version": "1.12.*",
+  "short_description": "Compatibility patch for Better Politics Mod (BPM) + TGR mini. Load after TGR mini, anti-tgr, and BPM. Includes cabinet UI localization hotfixes and merge fixes.",
+  "picture": "thumbnail.png",
+  "tags": [
+    "Fixes",
+    "Utilities",
+    "1.12"
+  ],
+  "relationships": [
+    {
+      "rel_type": "dependency",
+      "id": "3215078236",
+      "display_name": "The Great Revision",
+      "resource_type": "mod",
+      "version": "*"
+    },
+    {
+      "rel_type": "dependency",
+      "id": "2932134122",
+      "display_name": "Better Politics Mod",
+      "resource_type": "mod",
+      "version": "*"
+    }
+  ],
+  "game_custom_data": {
+    "multiplayer_synchronized": true,
+    "tested_with": [
+      {
+        "id": "3215078236",
+        "display_name": "The Great Revision",
+        "version": "*",
+        "date": "2026-01-31"
+      },
+      {
+        "id": "2932134122",
+        "display_name": "Better Politics Mod",
+        "version": "*",
+        "date": "2026-01-31"
+      }
+    ]
+  }
+}

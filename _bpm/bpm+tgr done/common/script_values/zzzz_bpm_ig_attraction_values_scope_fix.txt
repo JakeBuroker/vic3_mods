@@ -1,0 +1,28 @@
+# Fix BPM script_value scope errors spammed in error.log.
+# BPM uses a country-scoped trigger (bpm_performance_significant_country) inside a script_value that is evaluated in pop scope.
+# Wrapping it in owner = { ... } preserves intended meaning and avoids wrong-scope errors.
+
+REPLACE:ig_attraction_from_radicals_and_loyalists = {
+	add = 1
+	if = {
+		limit = {
+			owner = { bpm_performance_significant_country = yes }
+		}
+		if = {
+			limit = {
+				scope:interest_group = { has_variable = bpm_ig_very_radical_opposition_var }
+			}
+			multiply = ig_attraction_very_radical
+		}
+		else_if = {
+			limit = {
+				scope:interest_group = { has_variable = bpm_ig_radical_opposition_var }
+			}
+			multiply = ig_attraction_radical
+		}
+		else = {
+			multiply = ig_attraction_moderate
+		}
+	}
+}
+

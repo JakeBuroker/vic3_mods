@@ -1,0 +1,138 @@
+REPLACE:bpm_consciousness_liberal_target = {
+	if = {
+		limit = {
+			has_technology_researched = academia
+		}
+		add = {
+			value = 5
+			desc = bpm_consciousness_liberal_target_academia_tech_desc
+		}
+	}
+	if = {
+		limit = {
+			has_technology_researched = democracy
+		}
+		add = {
+			value = 5
+			desc = bpm_consciousness_liberal_target_democracy_tech_desc
+		}
+	}
+	if = {
+		limit = {
+			has_technology_researched = rationalism
+		}
+		add = {
+			value = 5
+			desc = bpm_consciousness_liberal_target_rationalism_tech_desc
+		}
+	}
+	if = {
+		limit = {
+			has_technology_researched = empiricism
+		}
+		add = {
+			value = 5
+			desc = bpm_consciousness_liberal_target_empiricism_tech_desc
+		}
+	}
+	if = {
+		limit = {
+			has_technology_researched = egalitarianism
+		}
+		add = {
+			value = 5
+			desc = bpm_consciousness_liberal_target_egalitarianism_tech_desc
+		}
+	}
+	if = {
+		limit = {
+			has_technology_researched = human_rights
+		}
+		add = {
+			value = 5
+			desc = bpm_consciousness_liberal_target_human_rights_tech_desc
+		}
+	}
+	if = {
+		limit = {
+			has_technology_researched = pan-nationalism
+		}
+		add = {
+			value = 5
+			desc = bpm_consciousness_liberal_target_pan_nationalism_tech_desc
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				has_law = law_type:law_census_voting
+				has_law = law_type:law_universal_suffrage
+				has_law = law_type:law_wealth_voting
+			}
+		}
+		add = {
+			value = 5
+			desc = bpm_consciousness_liberal_target_suffrage_law_desc
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_law = law_type:law_advisory_body
+			}
+		}
+		add = {
+			value = 15
+			desc = bpm_consciousness_liberal_target_no_advisory_body_desc
+		}
+	}
+	if = {
+		limit = {
+			has_law = law_type:law_protected_speech
+		}
+		add = {
+			value = 5
+			desc = bpm_consciousness_liberal_target_protected_speech_law_desc
+		}
+	}
+	add = {
+		value = bpm_manor_concentration_sum_weight_sq
+		multiply = -15
+	 	round = yes
+		desc = bpm_consciousness_liberal_change_manor_houses_desc
+	}
+	add = {
+		value = bpm_financial_concentration_sum_weight_sq
+		multiply = 50
+		round = yes
+		desc = bpm_consciousness_liberal_change_findist_desc
+	}
+	add = {
+		value = 140
+		multiply = {
+			value = 0
+			if = {
+				limit = {
+					has_game_started = yes
+				}
+				add = literacy_rate
+			}
+			else = {
+				every_scope_pop = {
+					add = {
+						value = total_size
+						multiply = literacy_rate
+					}
+				}
+				# FIX: avoid Div/0 during pre-game init when total_population can be 0
+				divide = {
+					value = total_population
+					min = 1
+				}
+			}
+		}
+		desc = bpm_consciousness_liberal_change_literacy_rate_desc
+	}
+	min = 0
+	max = 100
+}
