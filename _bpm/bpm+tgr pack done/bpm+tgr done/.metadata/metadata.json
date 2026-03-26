@@ -3,7 +3,7 @@
   "id": "",
   "version": "1.12.3",
   "supported_game_version": "1.12.*",
-  "short_description": "Compatibility patch for Better Politics Mod (BPM) + TGR mini. Load after TGR mini, anti-tgr, and BPM. Includes cabinet UI localization hotfixes and merge fixes.",
+  "short_description": "Compatibility patch for Better Politics Mod (BPM) + TGR. Load after TGR, anti-tgr, and BPM. Includes cabinet UI localization hotfixes and merge fixes.",
   "picture": "thumbnail.png",
   "tags": [
     "Fixes",

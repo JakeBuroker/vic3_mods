@@ -1,0 +1,10 @@
+GLOBAL = {
+	# Safeguard: ensure USA starts with correct BPM foundation laws.
+	# Reported issue: USA starting with "President Appointed" + "Advisory Body" (defaults)
+	# Expected: "Unified Executive" + "Separation of Powers".
+	c:USA = {
+		activate_law = law_type:law_no_separate_hog
+		activate_law = law_type:law_separated_powers
+	}
+}
+

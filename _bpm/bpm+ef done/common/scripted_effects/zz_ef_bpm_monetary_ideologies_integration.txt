@@ -35,8 +35,10 @@ bpm_setup_country_monetary_ideologies = {
 			limit = { has_ideology = ideology:ideology_monetary_conservative }
 			remove_ideology = ideology_monetary_conservative
 		}
-		limit = { NOT = { has_ideology = ideology:ideology_monetary_moderate } }
-		add_ideology = ideology_monetary_moderate
+		if = {
+			limit = { NOT = { has_ideology = ideology:ideology_monetary_moderate } }
+			add_ideology = ideology_monetary_moderate
+		}
 	}
 
 	# Armed forces: monetary populism (use the E&F "left" monetary ideology)
@@ -44,8 +46,10 @@ bpm_setup_country_monetary_ideologies = {
 		if = { limit = { has_ideology = ideology:ideology_monetary_no_policy } remove_ideology = ideology_monetary_no_policy }
 		if = { limit = { has_ideology = ideology:ideology_monetary_moderate } remove_ideology = ideology_monetary_moderate }
 		if = { limit = { has_ideology = ideology:ideology_monetary_conservative } remove_ideology = ideology_monetary_conservative }
-		limit = { NOT = { has_ideology = ideology:ideology_monetary_left } }
-		add_ideology = ideology_monetary_left
+		if = {
+			limit = { NOT = { has_ideology = ideology:ideology_monetary_left } }
+			add_ideology = ideology_monetary_left
+		}
 	}
 
 	# Devout: no monetary interest
@@ -53,8 +57,10 @@ bpm_setup_country_monetary_ideologies = {
 		if = { limit = { has_ideology = ideology:ideology_monetary_moderate } remove_ideology = ideology_monetary_moderate }
 		if = { limit = { has_ideology = ideology:ideology_monetary_conservative } remove_ideology = ideology_monetary_conservative }
 		if = { limit = { has_ideology = ideology:ideology_monetary_left } remove_ideology = ideology_monetary_left }
-		limit = { NOT = { has_ideology = ideology:ideology_monetary_no_policy } }
-		add_ideology = ideology_monetary_no_policy
+		if = {
+			limit = { NOT = { has_ideology = ideology:ideology_monetary_no_policy } }
+			add_ideology = ideology_monetary_no_policy
+		}
 	}
 
 	# Only after currency standards tech exists (BPM uses it too for cabinet timing)
@@ -67,8 +73,10 @@ bpm_setup_country_monetary_ideologies = {
 				limit = { has_ideology = ideology:ideology_monetary_no_policy }
 				remove_ideology = ideology_monetary_no_policy
 			}
-			limit = { NOT = { has_ideology = ideology:ideology_monetary_moderate } }
-			add_ideology = ideology_monetary_moderate
+			if = {
+				limit = { NOT = { has_ideology = ideology:ideology_monetary_moderate } }
+				add_ideology = ideology_monetary_moderate
+			}
 		}
 
 		# Conservatives / landowners: orthodox / hard-money bias
@@ -77,16 +85,20 @@ bpm_setup_country_monetary_ideologies = {
 				limit = { has_ideology = ideology:ideology_monetary_no_policy }
 				remove_ideology = ideology_monetary_no_policy
 			}
-			limit = { NOT = { has_ideology = ideology:ideology_monetary_conservative } }
-			add_ideology = ideology_monetary_conservative
+			if = {
+				limit = { NOT = { has_ideology = ideology:ideology_monetary_conservative } }
+				add_ideology = ideology_monetary_conservative
+			}
 		}
 		ig:ig_landowners ?= {
 			if = {
 				limit = { has_ideology = ideology:ideology_monetary_no_policy }
 				remove_ideology = ideology_monetary_no_policy
 			}
-			limit = { NOT = { has_ideology = ideology:ideology_monetary_conservative } }
-			add_ideology = ideology_monetary_conservative
+			if = {
+				limit = { NOT = { has_ideology = ideology:ideology_monetary_conservative } }
+				add_ideology = ideology_monetary_conservative
+			}
 		}
 
 		# Agrarian populists / rural folk: debtor-friendly / silver-biased bloc
@@ -95,16 +107,20 @@ bpm_setup_country_monetary_ideologies = {
 				limit = { has_ideology = ideology:ideology_monetary_no_policy }
 				remove_ideology = ideology_monetary_no_policy
 			}
-			limit = { NOT = { has_ideology = ideology:ideology_monetary_left } }
-			add_ideology = ideology_monetary_left
+			if = {
+				limit = { NOT = { has_ideology = ideology:ideology_monetary_left } }
+				add_ideology = ideology_monetary_left
+			}
 		}
 		ig:ig_rural_folk ?= {
 			if = {
 				limit = { has_ideology = ideology:ideology_monetary_no_policy }
 				remove_ideology = ideology_monetary_no_policy
 			}
-			limit = { NOT = { has_ideology = ideology:ideology_monetary_left } }
-			add_ideology = ideology_monetary_left
+			if = {
+				limit = { NOT = { has_ideology = ideology:ideology_monetary_left } }
+				add_ideology = ideology_monetary_left
+			}
 		}
 
 		# Everyone else: explicitly has "no stance on monetary policy"
