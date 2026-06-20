@@ -24,12 +24,6 @@
 [*]This patch restores it via [b]common/scripted_triggers/zzzz_bpm_mr_is_active_trigger.txt[/b].
 [/list]
 
-[*][b]Re-applies Morgenrote tech injection lost to BPM REPLACE[/b]
-[list]
-[*]Morgenrote injects [b]elgar_mass_culture_tech[/b] into vanilla [b]mass_propaganda[/b], but BPM fully [b]REPLACE[/b]s that tech, so the injection is lost with load order Morgenrote -> BPM.
-[*]This patch re-injects it after BPM via [b]common/technology/technologies/zzzz_bpm_mr_society_technologies_patch.txt[/b].
-[/list]
-
 [*][b]Fixes Swedish Bernadotte ruler templates overwrite[/b]
 [list]
 [*]BPM [b]REPLACE[/b]s these templates and overwrites Morgenrote’s flavor. This patch reapplies Morgenrote’s [b]MR traits/DNA[/b] but keeps the [b]interest group / ideology[/b] assignment consistent with BPM:
@@ -40,5 +34,6 @@
 [h2]Notes / scope[/h2]
 [list]
 [*]This patch is focused on resolving confirmed overwrites (files / REPLACE conflicts). It does not try to rebalance laws, parties, political movements, or interest groups.
+[*]As of BPM 2.5.32, BPM only injects its modifier into [b]mass_propaganda[/b]. It no longer replaces the technology, so Morgenrote's [b]elgar_mass_culture_tech[/b] prerequisite survives without a compatch override.
 [/list]
 [url=https://github.com/BEDTRIP/vic3_mods]my github[/url]

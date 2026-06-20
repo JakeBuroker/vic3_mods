@@ -4,15 +4,15 @@
 #
 # Load order: Morgenrote -> BPM -> compatch
 #
-# BPM uses REPLACE:* for these templates, which overwrites Morgenrote's flavor
-# (mr traits + custom DNA + some different IG/ideology choices).
-# This file reapplies Morgenrote's versions after BPM.
+# BPM uses REPLACE:* for these templates after Morgenrote's INJECT/TRY_REPLACE
+# definitions. This file keeps BPM's IG/ideology choices and restores the
+# Morgenrote traits, DNA, and other flavor fields that BPM overwrites.
 #
 
 # Karl XIV Johan of Sweden
 TRY_REPLACE:swe_karl_johan_bernadotte_template = {
-    first_name = mr_karl_johan
-    last_name = mr_bernadotte
+    first_name = "Karl_Johan"
+    last_name = "Bernadotte"
     historical = yes
     ruler = yes
     birth_date = 1763.1.26
@@ -28,18 +28,19 @@ TRY_REPLACE:swe_karl_johan_bernadotte_template = {
     on_created = {
         set_variable = is_married
     }
+    home_region = STATE_SVEALAND
 }
 
 # Oscar I of Sweden
 TRY_REPLACE:swe_oscar_bernadotte_template = {
-    dna = dna_oscar_bernadotte
-    first_name = mr_oscar
-    last_name = mr_bernadotte
+    first_name = "Oscar"
+    last_name = "Bernadotte"
     historical = yes
     heir = yes
     birth_date = 1799.7.4
     culture = cu:french
     religion = rel:protestant
+    dna = dna_oscar_bernadotte
     interest_group = ig_liberals
     ideology = ideology_moderate
     traits = {
@@ -49,6 +50,7 @@ TRY_REPLACE:swe_oscar_bernadotte_template = {
     on_created = {
         set_variable = is_married
     }
+    home_region = STATE_SVEALAND
 }
 
 # Karl XV of Sweden
@@ -58,20 +60,18 @@ TRY_REPLACE:swe_charles_bernadotte_template = {
     historical = yes
 	female = no
     birth_date = 1826.5.3
+    home_region = STATE_SVEALAND
     culture = cu:swedish
     religion = rel:protestant
     dna = mr_swe_bernadotte_karl_xv
     interest_group = ig_liberals
     ideology = ideology_utilitarian_leader
-        traits = {
-			mr_ruler_trait_karl_xv
-			arrogant
-			hedonist
-			wrathful
-			expensive_tastes
-        }
-    on_created = {
-        set_variable = is_married
+    traits = {
+		mr_ruler_trait_karl_xv
+		arrogant
+		hedonist
+		wrathful
+		expensive_tastes
     }
 }
 
@@ -81,41 +81,36 @@ TRY_REPLACE:swe_oscar_ii_bernadotte_template = {
     last_name = mr_bernadotte
     historical = yes
     birth_date = 1829.1.21
+    home_region = STATE_SVEALAND
     culture = cu:swedish
     religion = rel:protestant
 	female = no
     dna = mr_swe_bernadotte_oscar_ii
     interest_group = ig_liberals
     ideology = ideology_moderate
-        traits = {
-			mr_ruler_trait_oscar_ii
-         	meticulous
-			reserved
-        }
-	on_created = {
-        set_variable = is_married
-    }	
+    traits = {
+		mr_ruler_trait_oscar_ii
+		meticulous
+		reserved
+	}
 }
 
 # Gustaf V of Sweden
 TRY_REPLACE:swe_gustaf_v_bernadotte_template = {
-    first_name = mr_gustaf
-    last_name = mr_bernadotte
+    first_name = "Gustaf"
+    last_name = "Bernadotte"
     historical = yes
 	dna = mr_swe_bernadotte_gustaf_v
     female = no
     birth_date = 1858.6.16
-    culture=cu:swedish
+    culture = cu:swedish
     religion = rel:protestant
     interest_group = ig_liberals
     ideology = ideology_moderate
-        traits = {
-			mr_ruler_trait_gustaf_v
-			meticulous
-        	reserved
-        }
-    on_created = {
-        set_variable = is_married
+    traits = {
+		mr_ruler_trait_gustaf_v
+		meticulous
+		reserved
     }
+    home_region = STATE_SVEALAND
 }
-

@@ -1,14 +1,14 @@
 {
   "name": "ComPatch Morgenrote + BPM",
   "id": "3652200564",
-  "version": "1.12.3",
-  "supported_game_version": "1.12.*",
+  "version": "1.13.0",
+  "supported_game_version": "1.13.*",
   "short_description": "Compatibility patch for Morgenrote and Better Politics Mod (BPM). Load after both mods.",
   "picture": "thumbnail.png",
   "tags": [
     "Fixes",
     "Utilities",
-    "1.12"
+    "1.13"
   ],
   "relationships": [
     {
@@ -39,22 +39,21 @@
       {
         "id": "com.github.Victoria-3-Modding-Co-op.Community-Mod-Framework",
         "display_name": "Community Mod Framework",
-        "version": "1.40.4",
-        "date": "2026-01-22"
+        "version": "1.56.0",
+        "date": "2026-06-06"
       },
       {
         "id": "2889925770",
         "display_name": "Morgenroete",
-        "version": "2.6.3 Mohorovicic",
-        "date": "2026-01-18"
+        "version": "2.8.2 Allemao",
+        "date": "2026-06-19"
       },
       {
         "id": "2932134122",
         "display_name": "Better Politics Mod",
-        "version": "2.5",
-        "date": "2026-01-11"
+        "version": "2.5.32",
+        "date": "2026-06-13"
       }
     ]
   }
 }
-
